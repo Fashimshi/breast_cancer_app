@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        form, #registration-form {
+            text-align: left;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .registration-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .registration-link {
+            color: #4CAF50;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="sign-in-form" method="POST" action="{{ url_for('login') }}">
+        <input type="hidden" name="action" value="login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+    
+    <!-- Registration Link -->
+    <div class="registration-section">
+        <span class="registration-link">Don't have an account? Register here.</span>
+    </div>
+
+    <div id="registration-form" style="display: none;">
+        <h2>Registration</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <input type="hidden" name="action" value="register">
+            <label for="reg_username">New Username:</label>
+            <input type="text" id="reg_username" name="username" required>
+            
+            <label for="reg_password">New Password:</label>
+            <input type="password" id="reg_password" name="password" required>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to toggle the visibility of the registration form
+        document.querySelector('.registration-link').addEventListener('click', function() {
+            document.getElementById('sign-in-form').style.display = 'none';
+            document.getElementById('registration-form').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

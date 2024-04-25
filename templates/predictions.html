@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Predictions</title>
+</head>
+<body>
+<main class="container">
+    <h2>Patient Predictions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Patient Name</th>
+                <th>Probability Value</th>
+                <th>Prediction Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.patient_id }}</td>
+                <td>{{ patient.patient_name }}</td>
+                <td>{{ patient.probability }}</td>
+                <td>{{ patient.prediction }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</main>
+</body>
+</html>

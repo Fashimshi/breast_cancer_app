@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Breast Cancer Prediction System</title>
+</head>
+<body>
+<nav class="container-fluid">
+    <ul>
+        <li><strong>Breast Cancer  Prediction System</strong></li>
+    </ul>
+    <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="/view_predictions">Predictions</a></li>
+        <li><a href="/logout" role="button">Logout</a></li>
+    </ul>
+</nav>
+<main class="container">
+    <div class="grid">
+        <section>
+            <hgroup>
+                <h2>Welcome to the Breast Cancer  Prediction Dashboard</h2>
+                <h3>Enter Patient Details</h3>
+            </hgroup>
+            <p>Use the form below to input patient details and then proceed to the prediction model.</p>
+            <form action="/save_patient" method="post" class="grid">
+                <input type="text" id="patientId" name="patientId" placeholder="Patient ID" aria-label="Patient ID" required>
+                <input type="text" id="patientName" name="patientName" placeholder="Patient Name" aria-label="Patient Name" required>
+        
+                <button type="submit">Proceed</button>
+            </form>
+            
+        </section>
+    </div>
+</main>
+<footer class="container">
+    <small>
+        <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
+    </small>
+</footer>
+</body>
+</html>
